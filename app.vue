@@ -1,10 +1,10 @@
 <template>
-    <UApp>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
-</UApp>
+  <div class="flex flex-col min-h-screen">
+    <Navigation></Navigation>
+    <main class="w-full grow items-start">
+      <NuxtPage/>
+    </main>
+    
+  <SiteFooter></SiteFooter>
+  </div>  
 </template>

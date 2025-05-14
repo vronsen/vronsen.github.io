@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
-const { data: home }= await useAsyncData(() => queryCollection('content').path('/').first())
+const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
 
 useSeoMeta({
-    title: home.value?.title,
-    description: home.value?.description
+  title: home.value?.title,
+  description: home.value?.description
 })
 
 </script>
@@ -12,9 +11,11 @@ useSeoMeta({
 
 
 <template>
-    <ContentRenderer v-if="home" :value="home"/>
-    <div> Home not found</div>
+    <ContentRenderer v-if="home" :value="home" />
 
-    <h1 class="mt-8">Hallo!</h1>
-    <UButton>Button</UButton>
+    <div v-else>Home not found</div>
+
+  
+
+
 </template>

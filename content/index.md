@@ -1,3 +1,3 @@
 # My first page
 
-Here is some content.
+Here is some index content.
