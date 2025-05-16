@@ -1,41 +1,40 @@
-
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from "@nuxt/ui";
 
 const items = ref<NavigationMenuItem[][]>([
   [
-    {
-      label: 'About me',
-      icon: 'i-lucide:user-round-search',
-      to: '/aboutme',
-      
+     {
+      label: "Home",
+      icon: "i-lucide-house",
+      to: "/",
     },
     {
-      label: 'Projects',
-      icon: 'i-lucide:user-round-search',
-      to: '/projects'
+      label: "About me",
+      icon: "i-lucide:user-round-search",
+      to: "/aboutme",
     },
     {
-      label: 'Contact',
-      icon: 'i-lucide-contact',
-      to: '/contact'
-    }
+      label: "Projects",
+      icon: "i-lucide-files",
+      to: "/projectOverview",
+    },
+    {
+      label: "Contact",
+      icon: "i-lucide-contact",
+      to: "/contact",
+    },
   ],
   [
     {
-      label: 'GitHub',
-      icon: 'i-simple-icons-github',
-      to: 'https://github.com/vronsen',
-      target: '_blank'
-    }
-  ]
-])
+      label: "GitHub",
+      icon: "i-simple-icons-github",
+      to: "https://github.com/vronsen",
+      target: "_blank",
+    },
+  ],
+]);
 </script>
 
 <template>
-    
-
-    
-  <UNavigationMenu color="neutral" :items="items" class="w-full" />
-
+  <UNavigationMenu color="neutral" :items="items" class="ml-8 mr-2 mt-4" />
 </template>
