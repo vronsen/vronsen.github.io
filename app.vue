@@ -5,6 +5,6 @@
       <NuxtPage/>
     </main>
     
-  <SiteFooter></SiteFooter>
+  <SiteFooter class="text-xl"></SiteFooter>
   </div>  
 </template>
