@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@nuxtjs/sitemap",
     "nuxt-og-image",
-    "@nuxtjs/color-mode"
+    "@nuxtjs/color-mode",
+    "@tresjs/nuxt",
   ],
   vite: {
     plugins: [tailwindcss()],

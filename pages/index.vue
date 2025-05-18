@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { UContainer } from "#components";
+import { OrbitControls, GLTFModel } from "@tresjs/cientos";
 
 //  const { data: project } = await useAsyncData("content", () =>
 //    queryCollection("content").first()
@@ -19,15 +20,12 @@ const { data: projects } = await useAsyncData("content", () =>
 //     .all()
 // })
 
-defineOgImageComponent('PortfolioOgImage', {
-  headline: 'Moin!',
+defineOgImageComponent("PortfolioOgImage", {
+  headline: "Moin!",
   title: "I am Veronika 👋",
-  description: 'This Portfolio introduces me briefly as a person and my most successful projects.'
+  description:
+    "This Portfolio introduces me briefly as a person and my most successful projects.",
 });
-
-
-
-
 </script>
 
 <template>
@@ -39,8 +37,8 @@ defineOgImageComponent('PortfolioOgImage', {
         content="This is the start page with a brief summary of who I am and one example project."
       />
     </head>
-    <div class="m-8">
-      <p> Color mode: {{ $colorMode.value }}</p>
+    <div class="m-8 h-screen">
+      <p>Color mode: {{ $colorMode.value }}</p>
       <section>
         <h1 class="text-3xl">Hi I am Veronika.</h1>
       </section>
@@ -51,6 +49,18 @@ defineOgImageComponent('PortfolioOgImage', {
           Development.
         </p>
       </section>
+      <TresCanvas clear-color="#82DBC5">
+        <TresPerspectiveCamera :position="[3, 2, 5]" />
+        <OrbitControls />
+        <Suspense>
+          <GLTFModel path="/models/cuteMug/scene.gltf" draco />
+        </Suspense>
+        <TresDirectionalLight
+          :position="[3, 3, 3]"
+          :intensity="2"
+          cast-shadow
+        />
+      </TresCanvas>
     </div>
 
     <!-- <div v-if="project">
