@@ -4,6 +4,11 @@ description: This app provides an overview of all current participants in an eve
 cover: escVotingApp1.jpg
 tags:
   - 30.09.2023
+ogImage: 
+  component: PortfolioOgImage
+  headline: ESC Voting App
+  description: This page provides more detailled information about the ESC Voting App project.
+
 ---
 
 

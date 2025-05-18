@@ -38,8 +38,32 @@ const items = ref<NavigationMenuItem[][]>([
     },
   ],
 ]);
+
+const colorMode = useColorMode()
+
+const isDark = computed({
+  get() {
+    return colorMode.preference === 'dark'
+  },
+  set() {
+    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+  }
+})
+
+
+
+
 </script>
 
 <template>
   <UNavigationMenu color="neutral" :items="items" class="ml-8 mr-2 mt-4" />
+  <div class="flex flex-row justify-end mr-6
+  " >
+  
+
+  <USwitch size="xl" color="primary" checked-icon="i-heroicons-moon" unchecked-icon="i-heroicons-sun" v-model="isDark">
+
+  </USwitch> 
+
+  </div>
 </template>

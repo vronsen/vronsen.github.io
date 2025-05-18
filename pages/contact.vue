@@ -1,5 +1,18 @@
 
     <script setup lang="ts">
+    
+defineOgImageComponent('PortfolioOgImage', {
+  headline: 'Moin!',
+  title: "This is my contact",
+  description: 'For any questions or feedback, please reach out to me.'
+});
+
+
+// definePageMeta({
+//   colorMode: 'light',
+// })
+
+
 
 </script>
 

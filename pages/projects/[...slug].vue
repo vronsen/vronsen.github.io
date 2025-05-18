@@ -8,13 +8,28 @@ const slug = useRoute().params.slug;
 const { data: project } = await useAsyncData(`projects-${slug}`, () => {
   return queryCollection("content").path(`/projects/${slug}`).first();
 });
+
+const route = useRoute()
+const { data: page } = await useAsyncData(`page-${route.path}`, () => {
+  return queryCollection('content').path(route.path).first()
+})
+if (page.value?.ogImage) {
+  defineOgImage(page.value.ogImage)
+}
+
+
+
+
 </script>
 
 <template>
   <html lang="en">
     <head>
       <title v-if="project">{{ project.title }}</title>
-      <meta name="description" content="This page provides more information about one of my projects.">
+      <meta
+        name="description"
+        content="This page provides more information about one of my projects."
+      />
     </head>
     <div v-if="project" class="m-8">
       <ContentRenderer v-if="project" :value="project"></ContentRenderer>

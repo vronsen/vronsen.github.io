@@ -4,6 +4,10 @@ description: The game leverages nostalgic, charming pixel art and interactive st
 cover: 2DPixelGame1.jpg
 tags: 
 - 30.03.2025
+ogImage: 
+  component: PortfolioOgImage
+  headline: 2D Pixel Game
+  description: This page provides more detailled information about the 2D Pixel Game project.
 ---
 
 <!-- ![This is an image of my project, where we developed a 2D Pixel Game](/images/projects/2DPixelGame1.jpg) -->

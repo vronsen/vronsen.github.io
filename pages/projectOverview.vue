@@ -4,6 +4,14 @@ import { UButton } from "#components";
 const { data: projects } = await useAsyncData("content", () =>
   queryCollection("content").all()
 );
+
+defineOgImageComponent('PortfolioOgImage', {
+  headline: 'Moin!',
+  title: "These are my projects",
+  description: 'This overview provides information about my projects.'
+});
+
+
 </script>
 
 <template>
