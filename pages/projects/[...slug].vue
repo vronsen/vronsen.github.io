@@ -11,11 +11,19 @@ const { data: project } = await useAsyncData(`projects-${slug}`, () => {
 </script>
 
 <template>
-  <div v-if="project" class="m-8">
-    <ContentRenderer v-if="project" :value="project"></ContentRenderer>
-    <p class="mb-4 text-2xl">{{ project.description }}</p>
-    <UButton>
-      <NuxtLink class="text-lg" to="/projectOverview">Back to overview</NuxtLink>
-    </UButton>
-  </div>
+  <html lang="en">
+    <head>
+      <title v-if="project">{{ project.title }}</title>
+      <meta name="description" content="This page provides more information about one of my projects.">
+    </head>
+    <div v-if="project" class="m-8">
+      <ContentRenderer v-if="project" :value="project"></ContentRenderer>
+      <p class="mb-4 text-2xl">{{ project.description }}</p>
+      <UButton>
+        <NuxtLink class="text-lg" to="/projectOverview"
+          >Back to overview</NuxtLink
+        >
+      </UButton>
+    </div>
+  </html>
 </template>

@@ -10,6 +10,7 @@ const { data: projects } = await useAsyncData("content", () =>
   <html lang="en">
     <head>
       <title>Project overview</title>
+       <meta name="description" content="This page provides information about some of my successful projects in an overview.">
     </head>
     
   <div v-if="projects" class="m-8">

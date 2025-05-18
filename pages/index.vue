@@ -18,12 +18,16 @@ const { data: projects } = await useAsyncData("content", () =>
 //     .select('title', 'description', 'meta')
 //     .all()
 // })
+
+
+
 </script>
 
 <template>
   <html lang="en">
     <head>
   <title>Homepage</title>
+   <meta name="description" content="This is the start page with a brief summary of who I am and one example project.">
 </head>
   <div class="m-8">
     <section>
