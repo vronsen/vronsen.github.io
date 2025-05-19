@@ -2,23 +2,9 @@
 import { UContainer } from "#components";
 import { OrbitControls, GLTFModel } from "@tresjs/cientos";
 
-//  const { data: project } = await useAsyncData("content", () =>
-//    queryCollection("content").first()
-//  );
-
-//  if(project) {
-// console.log("Example Project", project.value);
-//  }
-
 const { data: projects } = await useAsyncData("content", () =>
   queryCollection("content").all()
 );
-
-// const { datas } = await useAsyncData("content", () => {
-//   return queryCollection('content')
-//     .select('title', 'description', 'meta')
-//     .all()
-// })
 
 defineOgImageComponent("PortfolioOgImage", {
   headline: "Moin!",
@@ -38,7 +24,6 @@ defineOgImageComponent("PortfolioOgImage", {
       />
     </head>
     <div class="m-8 h-screen">
-      <p>Color mode: {{ $colorMode.value }}</p>
       <section>
         <h1 class="text-3xl">Hi I am Veronika.</h1>
       </section>
@@ -49,7 +34,7 @@ defineOgImageComponent("PortfolioOgImage", {
           Development.
         </p>
       </section>
-      <TresCanvas clear-color="#82DBC5">
+      <TresCanvas>
         <TresPerspectiveCamera :position="[3, 2, 5]" />
         <OrbitControls />
         <Suspense>
@@ -62,15 +47,6 @@ defineOgImageComponent("PortfolioOgImage", {
         />
       </TresCanvas>
     </div>
-
-    <!-- <div v-if="project">
-  
-      <ContentRenderer :value="project" />
-      <NuxtLink :to='project.path'>{{project.title}}</NuxtLink>
-
-    </div>
-  
-  <div v-else>Projekt nicht gefunden</div> -->
 
     <div v-if="projects">
       <div v-for="project in projects" :key="project.id">

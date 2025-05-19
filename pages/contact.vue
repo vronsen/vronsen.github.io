@@ -8,11 +8,6 @@ defineOgImageComponent('PortfolioOgImage', {
 });
 
 
-// definePageMeta({
-//   colorMode: 'light',
-// })
-
-
 
 </script>
 

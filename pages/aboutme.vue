@@ -1,16 +1,10 @@
 <script setup lang="ts">
 
-const colorModeButtonValue = ref('system');
-
 defineOgImageComponent('PortfolioOgImage', {
   headline: 'Moin!',
   title: "This is me 👋",
   description: 'This about me page introduces me and my CV in detail.'
 });
-
-// definePageMeta({
-//   colorMode: 'light',
-// })
 
 
 </script>
