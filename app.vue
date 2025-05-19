@@ -1,4 +1,11 @@
+<script>
+
+
+</script>
+
+
 <template>
+  <html>
   <div class="flex flex-col min-h-screen">
     <Navigation></Navigation>
     <main class="w-full grow items-start">
@@ -7,4 +14,5 @@
     
   <SiteFooter class="text-xl"></SiteFooter>
   </div>  
+  </html>
 </template>
