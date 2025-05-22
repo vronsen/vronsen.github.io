@@ -51,7 +51,6 @@ defineOgImageComponent("PortfolioOgImage", {
     <div v-if="projects">
       <div v-for="project in projects" :key="project.id">
         <div v-if="project.title == 'ESC Voting App'" class="m-8">
-          <h1 class="text-2xl font-bold">{{ project.title }}</h1>
 
           <ContentRenderer :value="project" class="w-lg mb-4 text-xl" />
 
