@@ -5,7 +5,7 @@
 
 
 <template>
-  <html>
+  <html lang="en">
   <div class="flex flex-col min-h-screen">
     <Navigation></Navigation>
     <main class="w-full grow items-start">

@@ -2,8 +2,8 @@
 import { UContainer } from "#components";
 import { OrbitControls, GLTFModel } from "@tresjs/cientos";
 
-const { data: projects } = await useAsyncData("content", () =>
-  queryCollection("content").all()
+const { data: project } = await useAsyncData("content", () =>
+  queryCollection("content").where("title", "=", "ESC Voting App").first()
 );
 
 defineOgImageComponent("PortfolioOgImage", {
@@ -23,7 +23,7 @@ defineOgImageComponent("PortfolioOgImage", {
         content="This is the start page with a brief summary of who I am and one example project."
       />
     </head>
-    <div class="m-8 h-screen">
+    <div class="ml-12">
       <section>
         <h1 class="text-3xl">Hi I am Veronika.</h1>
       </section>
@@ -34,33 +34,30 @@ defineOgImageComponent("PortfolioOgImage", {
           Development.
         </p>
       </section>
-      <TresCanvas>
-        <TresPerspectiveCamera :position="[3, 2, 5]" />
-        <OrbitControls />
-        <Suspense>
-          <GLTFModel path="/models/cuteMug/scene.gltf" draco />
-        </Suspense>
-        <TresDirectionalLight
-          :position="[3, 3, 3]"
-          :intensity="2"
-          cast-shadow
-        />
-      </TresCanvas>
+      <div class="m-4 h-80 w-120">
+        <TresCanvas>
+          <TresPerspectiveCamera :position="[2, 2, 5]" />
+          <OrbitControls />
+          <Suspense>
+            <GLTFModel path="/models/cuteMug/scene.gltf" draco />
+          </Suspense>
+          <TresDirectionalLight
+            :position="[3, 3, 3]"
+            :intensity="2"
+            cast-shadow
+          />
+        </TresCanvas>
+      </div>
     </div>
 
-    <div v-if="projects">
-      <div v-for="project in projects" :key="project.id">
-        <div v-if="project.title == 'ESC Voting App'" class="m-8">
+    <div v-if="project" class="ml-12">
+      <ContentRenderer :value="project" class="w-lg mb-4 text-xl" />
 
-          <ContentRenderer :value="project" class="w-lg mb-4 text-xl" />
-
-          <UButton>
-            <NuxtLink :to="project.path" class="text-lg"
-              >Details for {{ project.title }}
-            </NuxtLink>
-          </UButton>
-        </div>
-      </div>
+      <UButton class="mb-8">
+        <NuxtLink :to="project.path" class="text-lg"
+          >Details for {{ project.title }}
+        </NuxtLink>
+      </UButton>
     </div>
 
     <div v-else>Keine Projekte gefunden.</div>

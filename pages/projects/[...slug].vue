@@ -17,7 +17,9 @@ const { data: page } = await useAsyncData(`page-${route.path}`, () => {
 const { data: reducedProjects } = await useAsyncData(
   `page-${route.path}`,
   () => {
-    return queryCollection("content").select("path", "title", "date").first();
+    return queryCollection("content")
+      .select("path", "title", "date", "tags")
+      .first();
   }
 );
 
@@ -27,26 +29,35 @@ if (page.value?.ogImage) {
 </script>
 
 <template>
-  <html lang="en">
+  <div class="m-8" v-if="project">
     <head>
-      <title v-if="project">{{ project.title }}</title>
+      <title>{{ project.title }}</title>
       <meta
         name="description"
         content="This page provides more information about one of my projects."
       />
     </head>
-    <div v-if="project" class="m-8">
-      <ContentRenderer v-if="project" :value="project"></ContentRenderer>
-      <p class="mb-4 text-2xl">{{ project.description }}</p>
-  <p v-if="reducedProjects" class="mb-4 text-2xl">
-         Published: {{  reducedProjects.date }}
-        </p>
-      
-        <UButton>
-          <NuxtLink class="text-lg" to="/projectOverview">Overview</NuxtLink>
-        </UButton>
-      
-     
+    <ContentRenderer :value="project" />
+    <p class="mb-4 text-2xl">{{ project.description }}</p>
+
+    <div v-if="reducedProjects" class="mb-4 text-2xl">
+      <p class="font-bold">Published:</p>
+      <p>{{ reducedProjects.date }}</p>
     </div>
-  </html>
+
+    <div v-if="reducedProjects?.tags" class="flex flex-wrap gap-2 mb-6">
+      <UBadge
+        v-for="tag in reducedProjects.tags"
+        :key="tag"
+        color="info"
+        variant="outline"
+      >
+        {{ tag }}
+      </UBadge>
+    </div>
+
+    <NuxtLink to="/projectOverview">
+      <UButton class="text-lg">Overview</UButton>
+    </NuxtLink>
+  </div>
 </template>

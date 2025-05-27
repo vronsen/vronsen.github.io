@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "nuxt-og-image",
     "@nuxtjs/color-mode",
     "@tresjs/nuxt",
+    "@vee-validate/nuxt"
   ],
   vite: {
     plugins: [tailwindcss()],
