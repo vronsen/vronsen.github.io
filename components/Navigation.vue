@@ -1,28 +1,32 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
-const items = ref<NavigationMenuItem[][]>([
+const { locales, locale, setLocale, t } = useI18n();
+
+const currentLocale = computed(() => locale.value);
+
+const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
-      label: "Home",
+      label: t("NAVIGATION.HOME"),
       icon: "i-lucide-house",
       to: "/",
       class: "text-xl",
     },
     {
-      label: "About me",
+      label: t("NAVIGATION.ABOUT_ME"),
       icon: "i-lucide:user-round-search",
       to: "/aboutme",
       class: "text-xl",
     },
     {
-      label: "Projects",
+      label: t("NAVIGATION.PROJECTS"),
       icon: "i-lucide-files",
       to: "/projectOverview",
       class: "text-xl",
     },
     {
-      label: "Contact",
+      label: t("NAVIGATION.CONTACT"),
       icon: "i-lucide-contact",
       to: "/contact",
       class: "text-xl",
@@ -63,5 +67,21 @@ const isDark = computed({
       v-model="isDark"
     >
     </USwitch>
+
+    <UButton
+      @click="setLocale('de')"
+      class="ml-2"
+      :variant="currentLocale === 'de' ? 'solid' : 'outline'"
+    >
+      German
+    </UButton>
+    <UButton
+      @click="setLocale('en')"
+      class="ml-2"
+      :variant="currentLocale === 'en' ? 'solid' : 'outline'"
+    >
+      English
+    </UButton>
+    <!-- <h1>{{ $t('NAVIGATION.ABOUT_ME') }}</h1> -->
   </div>
 </template>

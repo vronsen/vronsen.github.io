@@ -14,19 +14,26 @@ export default defineNuxtConfig({
     "nuxt-og-image",
     "@nuxtjs/color-mode",
     "@tresjs/nuxt",
-    "@vee-validate/nuxt"
+    "@vee-validate/nuxt",
+    "@nuxtjs/i18n",
   ],
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "de", name: "German", file: "de.json" },
+    ],
+  },
   vite: {
     plugins: [tailwindcss()],
   },
   site: {
-    url: 'http://localhost:3000/',
-    name: 'My Portfolio Website'
+    url: "http://localhost:3000/",
+    name: "My Portfolio Website",
   },
   colorMode: {
-    preference: 'system',
-    fallback: 'light',
-    storage: 'localStorage', 
-    
-  }
+    preference: "system",
+    fallback: "light",
+    storage: "localStorage",
+  },
 });
