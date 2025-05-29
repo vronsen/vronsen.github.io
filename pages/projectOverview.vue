@@ -6,19 +6,51 @@ const { data: projects } = await useAsyncData("content", () =>
   queryCollection("content").all()
 );
 
+const tagsToFilterBy = ref([
+  {
+    label: "No filter",
+    id: "noFilter",
+  },
+  {
+    label: "UX",
+    id: "ux",
+  },
+  {
+    label: "C#",
+    id: "cSharp",
+  },
+  {
+    label: "Game Development",
+    id: "gameDevelopment",
+  },
+  {
+    label: "HTML",
+    id: "html",
+  },
+  {
+    label: "TypeScript",
+    id: "typescript",
+  },
+  {
+    label: "Daisy UI",
+    id: "daisyUi",
+  },
+  {
+    label: "Unity",
+    id: "unity",
+  },
+]);
 
-// const { data: reducedProjects } = await useAsyncData(
-//   "content", () =>
-//   queryCollection("content").select("tags").first()
-// );
+const chosenFilter = ref("No filter");
 
+function chosenTagIsInTagsOf(project: any) {
+  console.log(project.value);
 
-
-
-
-// const { data: reducedProjects } = await useAsyncData("content", () => {
-//   return queryCollection("content").select("path", "title", "date").all();
-// });
+  return project.tags.includes(chosenFilter.value) ||
+    chosenFilter.value === "No filter"
+    ? true
+    : false;
+}
 
 defineOgImageComponent("PortfolioOgImage", {
   headline: "Moin!",
@@ -38,33 +70,28 @@ defineOgImageComponent("PortfolioOgImage", {
     </head>
 
     <div v-if="projects" class="m-8">
-      <div class="flex justify-between gap-0">
-      <h1 class="text-4xl mb-4 font-bold">Project Overview</h1>
-      <UDropdownMenu class="px-10"> 
-        <UButton label="Filter" color="neutral" variant="outline" icon="i-lucide-filter">
-
-        </UButton>
-      </UDropdownMenu>
+      <div class="flex flex-col justify-between gap-0">
+        <h1 class="text-4xl mb-4 font-bold">Project Overview</h1>
+        <USelect
+          v-model="chosenFilter"
+          :items="tagsToFilterBy"
+          value-key="label"
+          placeholder="Filter projects"
+          class="mb-8"
+        >
+        </USelect>
       </div>
-      <div v-for="project in projects" class="mb-8 border-b pb-4">
-       <ContentRenderer :value="project" class="mb-4 text-xl" />
-      
-      
-
-        <!-- <p class="mb-4 text-2xl">{{ project.date }}</p> -->
-      
-
-        <UButton>
-          <NuxtLink :to="project.path" class="text-lg"
-            >Details to {{ project.title }}</NuxtLink
-          >
-        </UButton>
-               
+      <div v-for="project in projects" class="mb-8 pb-4">
+        <div v-if="chosenTagIsInTagsOf(project)" class="border-b">
+          <ContentRenderer :value="project" class="mb-4 text-xl" />
+          <UButton class="mb-4">
+            <NuxtLink :to="project.path" class="text-lg"
+              >Details to {{ project.title }}</NuxtLink
+            >
+          </UButton>
+        </div>
       </div>
+      
     </div>
-
-    <div v-else>Keine Projekte gefunden.</div>
-
-  
   </html>
 </template>

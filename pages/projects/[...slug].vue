@@ -29,14 +29,14 @@ if (page.value?.ogImage) {
 </script>
 
 <template>
-  <div class="m-8" v-if="project">
-    <head>
-      <title>{{ project.title }}</title>
+  <head>
+      <title v-if="project">{{ project.title }}</title>
       <meta
         name="description"
         content="This page provides more information about one of my projects."
       />
     </head>
+  <div class="m-8" v-if="project">
     <ContentRenderer :value="project" />
     <p class="mb-4 text-2xl">{{ project.description }}</p>
 
