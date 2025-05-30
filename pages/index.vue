@@ -12,26 +12,30 @@ defineOgImageComponent("PortfolioOgImage", {
   description:
     "This Portfolio introduces me briefly as a person and my most successful projects.",
 });
+
+useHead({
+  htmlAttrs: {
+    lang: "en",
+  },
+  title: "Homepage",
+  meta: [
+    {
+      name: "description",
+      content:
+        "This is the start page with a brief summary of who I am and one example project.",
+    },
+  ],
+});
 </script>
 
 <template>
-  <html lang="en">
-    <head>
-      <title>Homepage</title>
-      <meta
-        name="description"
-        content="This is the start page with a brief summary of who I am and one example project."
-      />
-    </head>
     <div class="ml-12">
       <section>
-        <h1 class="text-3xl">Hi I am Veronika.</h1>
+        <h1 class="text-3xl">{{ $t("HOMEPAGE.DESCRIPTION_TITLE_SHORT") }}</h1>
       </section>
       <section>
         <p class="text-xl">
-          I'm a business psychologist, currently studying media informatics.
-          I've been working in the areas of UX Design/Research and Frontend
-          Development.
+          {{ $t("HOMEPAGE.DESCRIPTION_TITLE_LONG") }}
         </p>
       </section>
       <div class="m-4 h-80 w-120">
@@ -61,5 +65,4 @@ defineOgImageComponent("PortfolioOgImage", {
     </div>
 
     <div v-else>Keine Projekte gefunden.</div>
-  </html>
 </template>

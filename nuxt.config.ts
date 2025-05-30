@@ -23,6 +23,7 @@ export default defineNuxtConfig({
       { code: "en", name: "English", file: "en.json" },
       { code: "de", name: "German", file: "de.json" },
     ],
+    strategy: 'prefix',
   },
   vite: {
     plugins: [tailwindcss()],

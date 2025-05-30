@@ -59,7 +59,7 @@ const isDark = computed({
   <UNavigationMenu color="neutral" :items="items" class="ml-8 mr-2 mt-4" />
   <div class="flex flex-row justify-end mr-6">
     <USwitch
-      label="Select color mode here."
+      :label="t('NAVIGATION.SELECT_COLOR_MODE')"
       size="xl"
       color="primary"
       checked-icon="i-heroicons-moon"
@@ -82,6 +82,5 @@ const isDark = computed({
     >
       English
     </UButton>
-    <!-- <h1>{{ $t('NAVIGATION.ABOUT_ME') }}</h1> -->
   </div>
 </template>

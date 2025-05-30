@@ -26,16 +26,26 @@ const { data: reducedProjects } = await useAsyncData(
 if (page.value?.ogImage) {
   defineOgImage(page.value.ogImage);
 }
+
+useHead({
+  htmlAttrs: {
+    lang: "en",
+  },
+  title: project.title,
+  meta: [
+    {
+      name: "description",
+      content:
+        "This page provides more information about one of my projects.",
+    },
+  ],
+});
+
+
+
 </script>
 
 <template>
-  <head>
-      <title v-if="project">{{ project.title }}</title>
-      <meta
-        name="description"
-        content="This page provides more information about one of my projects."
-      />
-    </head>
   <div class="m-8" v-if="project">
     <ContentRenderer :value="project" />
     <p class="mb-4 text-2xl">{{ project.description }}</p>
@@ -57,7 +67,7 @@ if (page.value?.ogImage) {
     </div>
 
     <NuxtLink to="/projectOverview">
-      <UButton class="text-lg">Overview</UButton>
+      <UButton class="text-lg">{{$t("PROJECT_DETAIL.BACK_TO_OVERVIEW_BUTTON_LABEL")}}</UButton>
     </NuxtLink>
   </div>
 </template>

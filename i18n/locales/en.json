@@ -3,6 +3,29 @@
     "HOME": "Home",
     "ABOUT_ME": "About me",
     "PROJECTS": "Projects",
-    "CONTACT": "Contact"
+    "CONTACT": "Contact",
+    "SELECT_COLOR_MODE": "Select color mode here."
+  },
+  "HOMEPAGE": {
+    "DESCRIPTION_TITLE_SHORT": "Hi, I am Veronika.",
+    "DESCRIPTION_TITLE_LONG": "I'm a business psychologist who is currently studying Media Informatics. I have experience working in UX design and research, as well as frontend development."
+  },
+  "PROJECT_OVERVIEW": {
+    "TITLE": "Project Overview",
+    "NO_FILTER": "No filter",
+    "BUTTON_DETAILS": "Details for "
+  },
+   "CONTACT": {
+    "TITLE": "Feel free to contact me!",
+    "FORM": {
+      "SUBJECT": "Subject",
+      "EMAIL": "Email",
+      "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "Type a message...",
+      "SUBMIT_BUTTON_LABEL": "Send message"
+    }
+  },
+    "PROJECT_DETAIL": {
+    "BACK_TO_OVERVIEW_BUTTON_LABEL": "Overview"
   }
 }
