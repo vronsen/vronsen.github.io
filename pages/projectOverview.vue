@@ -2,9 +2,23 @@
 import { UButton } from "#components";
 import { routeLocationKey } from "vue-router";
 
-const { data: projects } = await useAsyncData("content", () =>
-  queryCollection("content").all()
+// const { data: projects } = await useAsyncData("content", () =>
+//   queryCollection("content").all()
+// );
+
+const { locale } = useI18n();
+
+const { data: projects } = await useAsyncData(
+  () => "project-" + locale.value,
+  () =>
+    queryCollection("content")
+      .where("stem", "LIKE", "%." + locale.value)
+      .all(),
+  {
+    watch: [locale],
+  }
 );
+
 
 const { t } = useI18n();
 

@@ -2,8 +2,23 @@
 import { UContainer } from "#components";
 import { OrbitControls, GLTFModel } from "@tresjs/cientos";
 
-const { data: project } = await useAsyncData("content", () =>
-  queryCollection("content").where("title", "=", "ESC Voting App").first()
+const {locale} = useI18n();
+
+
+// const { data: project } = await useAsyncData("content", () =>
+//   queryCollection("content").where('stem', 'LIKE', '%.' + locale.value).first()
+// );
+
+
+const { data: project } = await useAsyncData(
+  () => "project-" + locale.value,
+  () =>
+    queryCollection("content")
+      .where("stem", "LIKE", "%." + locale.value)
+      .first(),
+  {
+    watch: [locale],
+  }
 );
 
 defineOgImageComponent("PortfolioOgImage", {
@@ -59,7 +74,7 @@ useHead({
 
       <UButton class="mb-8">
         <NuxtLink :to="project.path" class="text-lg"
-          >Details for {{ project.title }}
+          >{{ $t("PROJECT_OVERVIEW.BUTTON_DETAILS") }} {{ project.title }}
         </NuxtLink>
       </UButton>
     </div>
