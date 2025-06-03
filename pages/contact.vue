@@ -2,6 +2,8 @@
 import * as z from "zod";
 import type { FormError, FormSubmitEvent } from "nuxt/ui";
 
+const { t } = useI18n();
+
 const contactSchema = z.object({
   subject: z.string().optional(),
   email: z.string().email("Invalid email"),
@@ -12,13 +14,13 @@ const contactSchema = z.object({
 
 type Schema = z.output<typeof contactSchema>;
 
-const { t } = useI18n();
-
 const state = reactive<Partial<Schema>>({
   subject: undefined,
   email: undefined,
   message: undefined,
 });
+
+
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   console.log(event.data);
@@ -32,14 +34,16 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         message: event.data.message,
       },
     });
+
     console.log("Antwort vom server:", response);
   } catch (error) {
     console.error("Senden der Daten fehlgeschlagen.");
   }
 }
 
+
 defineOgImageComponent("PortfolioOgImage", {
-  headline: "Moin!",
+  headline: t('OG_IMAGES.HEADLINE'),
   title: "This is my contact",
   description: "For any questions or feedback, please reach out to me.",
 });

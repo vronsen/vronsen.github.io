@@ -10,6 +10,7 @@ import { useRoute } from "vue-router";
 //   return queryCollection("content").path(`/projects/${slug}`).first();
 // });
 
+
 const route = useRoute();
 
 const { locale } = useI18n();
@@ -37,7 +38,7 @@ const contentPath = computed(() => {
 });
 
 const localizedContentPath = computed(() => {
-  return `/${contentPath.value}.${locale.value}`;
+  return `${contentPath.value}.${locale.value}`;
 });
 
 const { data: pageTest } = await useAsyncData(
@@ -96,7 +97,9 @@ useHead({
     <p class="mb-4 text-2xl">{{ pageTest.description }}</p>
 
     <div class="mb-4 text-lg">
-      <p class="font-bold">Published:</p>
+      <p class="font-bold">{{
+      $t("PROJECT_DETAIL.PUBLISHED_LABEL")
+    }}:</p>
       <p>{{ pageTest.date }}</p>
     </div>
 

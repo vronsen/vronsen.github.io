@@ -22,10 +22,18 @@
       "EMAIL": "Email",
       "MESSAGE": "Message",
       "MESSAGE_PLACEHOLDER": "Type a message...",
-      "SUBMIT_BUTTON_LABEL": "Send message"
+      "SUBMIT_BUTTON_LABEL": "Send message",
+      "VALIDATION_MESSAGES": {
+        "INVALID_EMAIL": "Invalid mail",
+        "MESSAGE_TOO_SHORT": "Message too short"
+      }
     }
   },
     "PROJECT_DETAIL": {
-    "BACK_TO_OVERVIEW_BUTTON_LABEL": "Overview"
+    "BACK_TO_OVERVIEW_BUTTON_LABEL": "Overview",
+    "PUBLISHED_LABEL": "Published"
+  },
+    "OG_IMAGES": {
+    "HEADLINE": "Hello"
   }
 }

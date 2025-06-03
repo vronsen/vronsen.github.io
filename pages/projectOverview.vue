@@ -19,7 +19,6 @@ const { data: projects } = await useAsyncData(
   }
 );
 
-
 const { t } = useI18n();
 
 const tagsToFilterBy = computed(() => [
@@ -29,43 +28,42 @@ const tagsToFilterBy = computed(() => [
   },
   {
     label: "UX",
-    id: "ux",
+    id: "UX",
   },
   {
     label: "C#",
-    id: "cSharp",
+    id: "C#",
   },
   {
     label: "Game Development",
-    id: "gameDevelopment",
+    id: "Game Development",
   },
   {
     label: "HTML",
-    id: "html",
+    id: "HTML",
   },
   {
     label: "TypeScript",
-    id: "typescript",
+    id: "TypeScript",
   },
   {
     label: "Daisy UI",
-    id: "daisyUi",
+    id: "Daisy UI",
   },
   {
     label: "Unity",
-    id: "unity",
+    id: "Unity",
   },
 ]);
 
-const chosenFilter = ref(t("PROJECT_OVERVIEW.NO_FILTER"));
+const chosenFilter = ref("noFilter");
 
 function chosenTagIsInTagsOf(project: any) {
-  console.log(project.value);
 
-  return project.tags?.includes(chosenFilter?.value) ||
-    chosenFilter.value === t("PROJECT_OVERVIEW.NO_FILTER")
-    ? true
-    : false;
+  return (
+    chosenFilter.value === "noFilter" ||
+    project.tags?.includes(chosenFilter.value)
+  );
 }
 
 useHead({
@@ -98,7 +96,8 @@ defineOgImageComponent("PortfolioOgImage", {
       <USelect
         v-model="chosenFilter"
         :items="tagsToFilterBy"
-        value-key="label"
+        value-key="id"
+        option-attribute="label"
         placeholder="Filter projects"
         class="mb-8"
       >
@@ -108,8 +107,9 @@ defineOgImageComponent("PortfolioOgImage", {
       <div v-if="chosenTagIsInTagsOf(project)" class="border-b">
         <ContentRenderer :value="project" class="mb-4 text-xl" />
         <UButton class="mb-4">
-          <NuxtLink :to="project.path" class="text-lg"
-            > {{ $t("PROJECT_OVERVIEW.BUTTON_DETAILS") }} {{ project.title }}</NuxtLink
+          <NuxtLink :to="project.path" class="text-lg">
+            {{ $t("PROJECT_OVERVIEW.BUTTON_DETAILS") }}
+            {{ project.title }}</NuxtLink
           >
         </UButton>
       </div>

@@ -8,7 +8,7 @@
   },
   "HOMEPAGE": {
     "DESCRIPTION_TITLE_SHORT": "Hi, ich bin Veronika.",
-    "DESCRIPTION_TITLE_LONG": "Ich bin Wirtschaftspsychologin und studiere aktuell Medieninformatik. Ich habe Erfahrung im UX-Design und -Reserach sowie in der Frontend-Entwicklung."
+    "DESCRIPTION_TITLE_LONG": "Ich bin Wirtschaftspsychologin und studiere aktuell Medieninformatik. Ich habe Erfahrung im UX-Design und -Research sowie in der Frontend-Entwicklung."
   },
   "PROJECT_OVERVIEW": {
     "TITLE": "Projektübersicht",
@@ -22,10 +22,18 @@
       "EMAIL": "E-Mail",
       "MESSAGE": "Nachricht",
       "MESSAGE_PLACEHOLDER": "Schreibe eine Nachricht...",
-      "SUBMIT_BUTTON_LABEL": "Absenden"
+      "SUBMIT_BUTTON_LABEL": "Absenden",
+      "VALIDATION_MESSAGES": {
+        "INVALID_EMAIL": "Mail ungültig",
+        "MESSAGE_TOO_SHORT": "Nachricht zu kurz"
+      }
     }
   },
   "PROJECT_DETAIL": {
-    "BACK_TO_OVERVIEW_BUTTON_LABEL": "Zur Übersicht"
+    "BACK_TO_OVERVIEW_BUTTON_LABEL": "Zur Übersicht",
+    "PUBLISHED_LABEL": "Veröffentlicht"
+  }, 
+  "OG_IMAGES": {
+    "HEADLINE": "Moin"
   }
 }

@@ -78,6 +78,4 @@ useHead({
         </NuxtLink>
       </UButton>
     </div>
-
-    <div v-else>Keine Projekte gefunden.</div>
 </template>
