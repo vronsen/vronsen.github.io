@@ -3,6 +3,7 @@ import * as z from "zod";
 import type { FormError, FormSubmitEvent } from "nuxt/ui";
 
 const { t } = useI18n();
+const toast = useToast();
 
 const contactSchema = z.object({
   subject: z.string().optional(),
@@ -20,8 +21,6 @@ const state = reactive<Partial<Schema>>({
   message: undefined,
 });
 
-
-
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   console.log(event.data);
 
@@ -35,15 +34,30 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       },
     });
 
+    state.subject = undefined;
+    state.email = undefined;
+    state.message = undefined;
+
+    toast.add({
+      title: t("CONTACT.TOAST.SUCCESS_TITLE"),
+      color: "success",
+    });
+
     console.log("Antwort vom server:", response);
   } catch (error) {
+
+      toast.add({
+      title: t("CONTACT.TOAST.ERROR_TITLE"),
+      description: t("CONTACT.TOAST_ERROR_DESCRIPTION"),
+      color: "error",
+    });
+
     console.error("Senden der Daten fehlgeschlagen.");
   }
 }
 
-
 defineOgImageComponent("PortfolioOgImage", {
-  headline: t('OG_IMAGES.HEADLINE'),
+  headline: t("OG_IMAGES.HEADLINE"),
   title: "This is my contact",
   description: "For any questions or feedback, please reach out to me.",
 });

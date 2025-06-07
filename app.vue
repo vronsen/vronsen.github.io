@@ -1,6 +1,7 @@
 <script></script>
 
 <template>
+  <UApp>
   <html lang="en">
     <div class="flex flex-col min-h-screen">
       <Navigation></Navigation>
@@ -11,4 +12,5 @@
       <SiteFooter class="text-xl"></SiteFooter>
     </div>
   </html>
+</UApp>
 </template>

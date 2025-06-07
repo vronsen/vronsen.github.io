@@ -27,6 +27,11 @@
         "INVALID_EMAIL": "Invalid mail",
         "MESSAGE_TOO_SHORT": "Message too short"
       }
+    },
+      "TOAST": {
+      "SUCCESS_TITLE": "The message has been sent successfully.",
+      "ERROR_TITLE": "An error occured.",
+      "ERROR_DESCRIPTION": "Please try again later."
     }
   },
     "PROJECT_DETAIL": {

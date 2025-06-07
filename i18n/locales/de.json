@@ -27,6 +27,11 @@
         "INVALID_EMAIL": "Mail ungültig",
         "MESSAGE_TOO_SHORT": "Nachricht zu kurz"
       }
+    }, 
+    "TOAST": {
+      "SUCCESS_TITLE": "Die Nachricht wurde erfolgreich versendet.",
+      "ERROR_TITLE": "Es ist ein Fehler aufgetreten.",
+      "ERROR_DESCRIPTION": "Bitte versuchen Sie es später noch einmal."
     }
   },
   "PROJECT_DETAIL": {
