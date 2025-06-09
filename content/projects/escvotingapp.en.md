@@ -4,6 +4,7 @@ description: This app provides an overview of all current participants in an eve
 cover: escVotingApp1.jpg
 image: /projects/escVotingApp1.jpg
 date: 30.09.2023
+lang: en
 tags:
   - HTML
   - TypeScript
@@ -19,4 +20,4 @@ ogImage:
 ## **[ESC Voting App]{style="font-size: 2em"}**
 
 
-[An App in which the current participants of the Eurovision Song Contest are listed. Users can vote for them in groups and then compare their own personal result with the overall result.]{style="font-size: 1.5em"}
+[An app in which the current participants of the Eurovision Song Contest are listed. Users can vote for them in groups and then compare their personal result with the overall result.]{style="font-size: 1.5em"}
