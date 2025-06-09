@@ -6,7 +6,7 @@ import { routeLocationKey } from "vue-router";
 //   queryCollection("content").all()
 // );
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const { data: projects } = await useAsyncData(
   () => "project-" + locale.value,
@@ -18,8 +18,6 @@ const { data: projects } = await useAsyncData(
     watch: [locale],
   }
 );
-
-const { t } = useI18n();
 
 const tagsToFilterBy = computed(() => [
   {
@@ -81,9 +79,9 @@ useHead({
 });
 
 defineOgImageComponent("PortfolioOgImage", {
-  headline: "Moin!",
-  title: "These are my projects",
-  description: "This overview provides information about my projects.",
+  headline: t("OG_IMAGES.HEADLINE"),
+  title: t("OG_IMAGES.PROJECT_OVERVIEW.TITLE"),
+  description: t("OG_IMAGES.PROJECT_OVERVIEW.DESCRIPTION"),
 });
 </script>
 

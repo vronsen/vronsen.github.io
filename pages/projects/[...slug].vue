@@ -10,10 +10,9 @@ import { useRoute } from "vue-router";
 //   return queryCollection("content").path(`/projects/${slug}`).first();
 // });
 
-
 const route = useRoute();
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 // const { data: page } = await useAsyncData(`page-${route.path}`, () => {
 //  return queryCollection("content").path(route.path).first();
@@ -71,17 +70,18 @@ const { data: pageTest } = await useAsyncData(
 
 if (pageTest.value) {
   defineOgImageComponent("PortfolioOgImage", {
-    headline: "Moin!",
+    headline: t("OG_IMAGES.HEADLINE"),
     title: pageTest.value.title,
     description: pageTest.value.description,
   });
 }
 
+
 useHead({
   htmlAttrs: {
     lang: "en",
   },
-  title: pageTest.title,
+  title: pageTest.value?.title || t('PROJECT_DETAIL.SITE_BACKUP_TITLE'),
   meta: [
     {
       name: "description",
@@ -97,9 +97,7 @@ useHead({
     <p class="mb-4 text-2xl">{{ pageTest.description }}</p>
 
     <div class="mb-4 text-lg">
-      <p class="font-bold">{{
-      $t("PROJECT_DETAIL.PUBLISHED_LABEL")
-    }}:</p>
+      <p class="font-bold">{{ $t("PROJECT_DETAIL.PUBLISHED_LABEL") }}:</p>
       <p>{{ pageTest.date }}</p>
     </div>
 

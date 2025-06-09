@@ -14,7 +14,10 @@
     "TITLE": "Projektübersicht",
     "NO_FILTER": "Kein Filter",
     "BUTTON_DETAILS": "Mehr zu "
-  }, 
+  },
+  "ABOUT_ME": {
+    "TITLE": "Mein Lebenslauf"
+  },
   "CONTACT": {
     "TITLE": "Schreib mir!",
     "FORM": {
@@ -24,10 +27,11 @@
       "MESSAGE_PLACEHOLDER": "Schreibe eine Nachricht...",
       "SUBMIT_BUTTON_LABEL": "Absenden",
       "VALIDATION_MESSAGES": {
+        "REQUIRED": "Erforderlich",
         "INVALID_EMAIL": "Mail ungültig",
         "MESSAGE_TOO_SHORT": "Nachricht zu kurz"
       }
-    }, 
+    },
     "TOAST": {
       "SUCCESS_TITLE": "Die Nachricht wurde erfolgreich versendet.",
       "ERROR_TITLE": "Es ist ein Fehler aufgetreten.",
@@ -35,10 +39,27 @@
     }
   },
   "PROJECT_DETAIL": {
+    "SITE_BACKUP_TITLE": "Projekt",
     "BACK_TO_OVERVIEW_BUTTON_LABEL": "Zur Übersicht",
     "PUBLISHED_LABEL": "Veröffentlicht"
-  }, 
+  },
   "OG_IMAGES": {
-    "HEADLINE": "Moin"
+    "HEADLINE": "Moin",
+    "HOME": {
+      "TITLE": "Ich bin Veronika 👋",
+      "DESCRIPTION": "Dieses Portfolio stellt mich als Person und meine erfolgreichsten Projekte kurz vor."
+    },
+    "ABOUT_ME": {
+      "TITLE": "Mein Werdegang",
+      "DESCRIPTION": "Diese about me Seite erläutert meinen Werdegang im Detail."
+    },
+    "PROJECT_OVERVIEW": {
+      "TITLE": "Meine Projekte",
+      "DESCRIPTION": "Diese Seite gibt einen Überblick über meine bearbeiteten Projekte."
+    },
+    "CONTACT": {
+      "TITLE": "Kontakt",
+      "DESCRIPTION": "Bei Fragen oder Anmerkungen, melden Sie sich bei mir."
+    }
   }
 }

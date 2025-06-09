@@ -1,9 +1,11 @@
 <script setup lang="ts">
 
+const { t } = useI18n();
+
 defineOgImageComponent('PortfolioOgImage', {
-  headline: 'Moin!',
-  title: "This is me 👋",
-  description: 'This about me page introduces me and my CV in detail.'
+  headline: t("OG_IMAGES.HEADLINE"),
+  title: t("OG_IMAGES.ABOUT_ME.TITLE"),
+  description: t("OG_IMAGES.ABOUT_ME.DESCRIPTION"),
 });
 
 useHead({
@@ -28,6 +30,6 @@ useHead({
     <UButtonGroup>
 
     </UButtonGroup>
-    <h1 class="text-xl mt-4 ml-12">Here will be my CV.</h1>
+    <h1 class="text-xl mt-4 ml-12">{{ $t("ABOUT_ME.TITLE") }}</h1>
   
 </template>

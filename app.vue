@@ -2,15 +2,13 @@
 
 <template>
   <UApp>
-  <html lang="en">
     <div class="flex flex-col min-h-screen">
       <Navigation></Navigation>
       <main class="w-full grow items-start">
-        <NuxtPage/>
+        <NuxtPage />
       </main>
 
       <SiteFooter class="text-xl"></SiteFooter>
     </div>
-  </html>
-</UApp>
+  </UApp>
 </template>

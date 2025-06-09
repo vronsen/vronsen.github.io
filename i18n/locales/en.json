@@ -15,7 +15,10 @@
     "NO_FILTER": "No filter",
     "BUTTON_DETAILS": "Details for "
   },
-   "CONTACT": {
+  "ABOUT_ME": {
+    "TITLE": "My CV"
+  },
+  "CONTACT": {
     "TITLE": "Feel free to contact me!",
     "FORM": {
       "SUBJECT": "Subject",
@@ -24,21 +27,39 @@
       "MESSAGE_PLACEHOLDER": "Type a message...",
       "SUBMIT_BUTTON_LABEL": "Send message",
       "VALIDATION_MESSAGES": {
+        "REQUIRED": "Required",
         "INVALID_EMAIL": "Invalid mail",
         "MESSAGE_TOO_SHORT": "Message too short"
       }
     },
-      "TOAST": {
+    "TOAST": {
       "SUCCESS_TITLE": "The message has been sent successfully.",
       "ERROR_TITLE": "An error occured.",
       "ERROR_DESCRIPTION": "Please try again later."
     }
   },
-    "PROJECT_DETAIL": {
+  "PROJECT_DETAIL": {
+     "SITE_BACKUP_TITLE": "Project",
     "BACK_TO_OVERVIEW_BUTTON_LABEL": "Overview",
     "PUBLISHED_LABEL": "Published"
   },
-    "OG_IMAGES": {
-    "HEADLINE": "Hello"
+  "OG_IMAGES": {
+    "HEADLINE": "Hello",
+    "HOME": {
+      "TITLE": "I am Veronika 👋",
+      "DESCRIPTION": "This Portfolio introduces me briefly as a person and my most successful projects."
+    },
+    "ABOUT_ME": {
+      "TITLE": "This is me 👋",
+      "DESCRIPTION": "This about me page introduces me and my CV in detail."
+    },
+    "PROJECT_OVERVIEW": {
+      "TITLE": "These are my projects",
+      "DESCRIPTION": "This overview provides information about my projects."
+    },
+    "CONTACT": {
+      "TITLE": "This is my contact",
+      "DESCRIPTION": "For any questions or feedback, please reach out to me."
+    }
   }
 }

@@ -1,6 +1,6 @@
 ---
 title: ESC Voting App
-description: Deutsch This app provides an overview of all current participants in an event or project. Users have the opportunity to vote in groups for which participants they would like to vote for. They can then compare their personal voting result with the overall result of all votes cast. This creates an interactive and entertaining tool that makes individual preferences visible and gives a sense of the collective impression of all participants.
+description: This app provides an overview of all current participants in an event or project. Users have the opportunity to vote in groups for which participants they would like to vote for. They can then compare their personal voting result with the overall result of all votes cast. This creates an interactive and entertaining tool that makes individual preferences visible and gives a sense of the collective impression of all participants.
 cover: escVotingApp1.jpg
 image: /projects/escVotingApp1.jpg
 date: 30.09.2023

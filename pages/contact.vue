@@ -2,18 +2,34 @@
 import * as z from "zod";
 import type { FormError, FormSubmitEvent } from "nuxt/ui";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const toast = useToast();
 
-const contactSchema = z.object({
-  subject: z.string().optional(),
-  email: z.string().email("Invalid email"),
-  message: z
-    .string()
-    .min(30, "Your message must at least contain 30 characters"),
+const contactSchema = computed(() => {
+  return z.object({
+    subject: z.string().optional(),
+    email: z
+      .string({
+        required_error: t("CONTACT.FORM.VALIDATION_MESSAGES.REQUIRED"),
+      })
+      .email(t("CONTACT.FORM.VALIDATION_MESSAGES.INVALID_EMAIL")),
+    message: z
+      .string({
+        required_error: t("CONTACT.FORM.VALIDATION_MESSAGES.REQUIRED"),
+      })
+      .min(30, t("CONTACT.FORM.VALIDATION_MESSAGES.MESSAGE_TOO_SHORT")),
+  });
 });
 
-type Schema = z.output<typeof contactSchema>;
+type Schema = z.infer<(typeof contactSchema)["value"]>;
+
+const { errors, validate } = useForm();
+
+watch(locale, () => {
+  if (Object.keys(errors.value).length > 0) {
+    validate();
+  }
+});
 
 const state = reactive<Partial<Schema>>({
   subject: undefined,
@@ -45,8 +61,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
     console.log("Antwort vom server:", response);
   } catch (error) {
-
-      toast.add({
+    toast.add({
       title: t("CONTACT.TOAST.ERROR_TITLE"),
       description: t("CONTACT.TOAST_ERROR_DESCRIPTION"),
       color: "error",
@@ -58,8 +73,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
 defineOgImageComponent("PortfolioOgImage", {
   headline: t("OG_IMAGES.HEADLINE"),
-  title: "This is my contact",
-  description: "For any questions or feedback, please reach out to me.",
+  title: t("OG_IMAGES.CONTACT.TITLE"),
+  description: t("OG_IMAGES.CONTACT.DESCRIPTION"),
 });
 
 useHead({
