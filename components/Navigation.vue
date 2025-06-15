@@ -72,6 +72,7 @@ const isDark = computed({
       @click="setLocale('de')"
       class="ml-2"
       :variant="currentLocale === 'de' ? 'solid' : 'outline'"
+      data-testid="german-button"
     >
       German
     </UButton>

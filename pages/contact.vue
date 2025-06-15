@@ -56,7 +56,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
     toast.add({
       title: t("CONTACT.TOAST.SUCCESS_TITLE"),
-      color: "success",
+      color: "success"
     });
 
     console.log("Antwort vom server:", response);
@@ -94,27 +94,32 @@ useHead({
 <template>
   <h1 class="text-xl mt-4 ml-12">{{ $t("CONTACT.TITLE") }}</h1>
 
-  <UForm :schema="contactSchema" :state="state" @submit="onSubmit">
+  <UForm
+    :schema="contactSchema"
+    :state="state"
+    data-testid="contact-form"
+    @submit="onSubmit"
+  >
     <div class="flex flex-col mx-12 gap-8">
       <div class="mt-10 flex flex-row gap-8">
-        <UFormField :label="t('CONTACT.FORM.SUBJECT')">
-          <UInput v-model="state.subject"> </UInput>
+        <UFormField :label="t('CONTACT.FORM.SUBJECT')" name="subject">
+          <UInput v-model="state.subject" data-testid="subject-input"> </UInput>
         </UFormField>
 
         <UFormField :label="t('CONTACT.FORM.EMAIL')" name="email">
-          <UInput v-model="state.email"> </UInput>
+          <UInput v-model="state.email" data-testid="email-input"> </UInput>
         </UFormField>
       </div>
       <UFormField :label="t('CONTACT.FORM.MESSAGE')" name="message">
         <UTextarea
           v-model="state.message"
           class="w-full"
-          :placeholder="t('CONTACT.FORM.MESSAGE_PLACEHOLDER')"
+          data-testid="message-input"
         >
         </UTextarea>
       </UFormField>
     </div>
-    <UButton class="ml-12 mt-8" type="submit">{{
+    <UButton class="ml-12 mt-8" type="submit" data-testid="submit-button">{{
       $t("CONTACT.FORM.SUBMIT_BUTTON_LABEL")
     }}</UButton>
   </UForm>

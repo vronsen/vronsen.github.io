@@ -42,14 +42,10 @@ useHead({
 
 <template>
   <div class="ml-12">
-    <section>
       <h1 class="text-3xl">{{ $t("HOMEPAGE.DESCRIPTION_TITLE_SHORT") }}</h1>
-    </section>
-    <section>
       <p class="text-xl">
         {{ $t("HOMEPAGE.DESCRIPTION_TITLE_LONG") }}
       </p>
-    </section>
     <div class="m-4 h-80 w-120">
       <TresCanvas>
         <TresPerspectiveCamera :position="[2, 2, 5]" />
