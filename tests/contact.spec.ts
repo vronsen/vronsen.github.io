@@ -98,12 +98,60 @@ test("Kontaktformular verhindert Senden bei ungültiger E‑Mail", async ({
   expect(requestWasSent).toBeFalsy();
 });
 
+test("Kontaktformular verhindert Senden bei leerer E‑Mail", async ({
+  page,
+}) => {
+  await page.getByTestId("subject-input").fill("Testbetreff");
+  await page.getByTestId("email-input").fill(""); // leer --> ungültig
+  await page
+    .getByTestId("message-input")
+    .fill(
+      "Das ist eine Nachricht, die ausreichend lang ist, um abgesendet und erfolgreich verschickt zu werden."
+    );
+
+  // prüfen, ob jemals ein POST kommt
+  let requestWasSent = false;
+  await page.route("**/api/contact", (route, request) => {
+    if (request.method() === "POST") {
+      requestWasSent = true;
+    }
+    return route.continue();
+  });
+
+  await page.getByTestId("submit-button").click();
+  await page.waitForTimeout(1000);
+
+  expect(requestWasSent).toBeFalsy();
+});
+
 test("Kontaktformular verhindert Senden bei ungültiger Nachricht", async ({
   page,
 }) => {
   await page.getByTestId("subject-input").fill("Testbetreff");
   await page.getByTestId("email-input").fill("test@portfolio.de");
   await page.getByTestId("message-input").fill("Die Nachricht ist zu kurz.");
+
+  // prüfen, ob jemals ein POST kommt
+  let requestWasSent = false;
+  await page.route("**/api/contact", (route, request) => {
+    if (request.method() === "POST") {
+      requestWasSent = true;
+    }
+    return route.continue();
+  });
+
+  await page.getByTestId("submit-button").click();
+  await page.waitForTimeout(1000);
+
+  expect(requestWasSent).toBeFalsy();
+});
+
+test("Kontaktformular verhindert Senden bei leerer Nachricht", async ({
+  page,
+}) => {
+  await page.getByTestId("subject-input").fill("Testbetreff");
+  await page.getByTestId("email-input").fill("test@portfolio.de");
+  await page.getByTestId("message-input").fill("");
 
   // prüfen, ob jemals ein POST kommt
   let requestWasSent = false;
