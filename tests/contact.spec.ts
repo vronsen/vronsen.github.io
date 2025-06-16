@@ -1,26 +1,20 @@
 import { test, expect } from "@playwright/test";
 
-// test("test", async ({ page }) => {
-//   await page.goto("http://localhost:3000/contact");
-//   await page.getByTestId("subject-input").click();
-//   await page.getByTestId("subject-input").click();
-//   await page.getByTestId("subject-input").fill("Testbetreff");
-//   await page.getByText("BetreffE-MailNachricht").click();
-//   await page.getByRole("button", { name: "English" }).click();
-//   await page.getByTestId("subject-input").click();
-//   await page.getByTestId("email-input").click();
-//   await page.getByText("SubjectEmailMessage").click();
-//   await page.getByTestId("message-input").click();
-//   await page.getByTestId("contact-form").click();
-//   await page.getByTestId("submit-button").click();
-// });
-
 test.beforeEach(async ({ page }) => {
   // Gemeinsames Setup für alle Tests
   test.setTimeout(60000);
   await page.goto("http://localhost:3000/contact");
   await page.getByTestId("german-button").click();
   await expect(page.getByTestId("contact-form")).toBeVisible();
+  await expect(page.getByTestId("submit-button")).toBeVisible();
+});
+
+test("Die drei Inputfelder und der Submitbutton für das Kontaktformular sind vorhanden", async ({
+  page,
+}) => {
+  await expect(page.getByTestId("subject-input")).toBeVisible();
+  await expect(page.getByTestId("email-input")).toBeVisible();
+  await expect(page.getByTestId("message-input")).toBeVisible();
   await expect(page.getByTestId("submit-button")).toBeVisible();
 });
 
@@ -33,8 +27,6 @@ test("Kontaktformular sendet Anfrage erfolgreich ohne Betreff", async ({
     .fill(
       "Das ist eine Nachricht, die ausreichend lang ist, um abgesendet und erfolgreich verschickt zu werden."
     );
-
-  //await page.screenshot({ path: "screenshots/nach-email-fill4.png" });
 
   const [request] = await Promise.all([
     page.waitForRequest(
@@ -62,8 +54,6 @@ test("Kontaktformular sendet Anfrage erfolgreich mit Betreff", async ({
     .fill(
       "Das ist eine Nachricht, die ausreichend lang ist, um abgesendet und erfolgreich verschickt zu werden."
     );
-
-  //await page.screenshot({ path: "screenshots/nach-email-fill4.png" });
 
   const [request] = await Promise.all([
     page.waitForRequest(
@@ -129,34 +119,3 @@ test("Kontaktformular verhindert Senden bei ungültiger Nachricht", async ({
 
   expect(requestWasSent).toBeFalsy();
 });
-
-//wenn die Mailadresse das falsche Format hat,
-
-//wenn die Nachricht fehlt
-
-//wenn die Nachricht das falsche Format hat
-
-//wenn Mailadresse und Nachricht im falschen Format sind
-
-//wenn Mailadresse und Nachricht fehlen
-
-//wenn Mailadresse fehlt und Nachricht im falschen Format ist
-
-//wenn Mailadresse im falschen Format ist und Nachricht fehlt
-
-// test("homepageIsTranslatedToEnglish", async ({ page }) => {
-//   await page.goto("http://localhost:3000/");
-//   await page.getByRole("button", { name: "English" }).click();
-//   await expect(
-//     page.getByRole("heading", { name: "Hi, I am Veronika." })
-//   ).toBeVisible();
-// });
-
-// test("homepageIsTranslatedToGerman", async ({ page }) => {
-//   await page.goto("http://localhost:3000/");
-//   await page.getByRole("button", { name: "German" }).click();
-
-//   await page.reload(); // braucht es, damit Text wirklich ersetzt wird
-
-//   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Hi, ich bin Veronika.");
-// });
