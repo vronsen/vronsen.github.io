@@ -16,7 +16,9 @@
     "BUTTON_DETAILS": "Mehr zu "
   },
   "ABOUT_ME": {
-    "TITLE": "Mein Lebenslauf"
+    "TITLE": "Mein Lebenslauf",
+    "TITLE_JOBS": "Berufliche Erfahrung",
+    "TITLE_EDUCATION": "Ausbildung"
   },
   "CONTACT": {
     "TITLE": "Schreib mir!",

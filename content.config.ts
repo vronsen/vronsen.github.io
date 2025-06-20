@@ -14,5 +14,28 @@ export default defineContentConfig({
         }),
       })
     ),
+    jobs: defineCollection({
+      type: "data",
+      source: "1.jobs/**.json",
+      schema: z.object({
+        lang: z.string(),
+        jobTitle: z.string(),
+        company: z.string(),
+        description: z.string(),
+        start: z.string(),
+        end: z.string(),
+      }),
+    }),
+    education: defineCollection({
+      type: "data",
+      source: "2.education/**.json",
+      schema: z.object({
+        lang: z.string(),
+        university: z.string(),
+        course: z.string(),
+        start: z.string(),
+        end: z.string(),
+      }),
+    }),
   },
 });

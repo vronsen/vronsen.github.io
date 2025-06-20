@@ -16,7 +16,9 @@
     "BUTTON_DETAILS": "Details for "
   },
   "ABOUT_ME": {
-    "TITLE": "My CV"
+    "TITLE": "My CV",
+     "TITLE_JOBS": "Professional experience",
+    "TITLE_EDUCATION": "Education"
   },
   "CONTACT": {
     "TITLE": "Feel free to contact me!",
