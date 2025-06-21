@@ -63,7 +63,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   } catch (error) {
     toast.add({
       title: t("CONTACT.TOAST.ERROR_TITLE"),
-      description: t("CONTACT.TOAST_ERROR_DESCRIPTION"),
+      description: t("CONTACT.TOAST.ERROR_DESCRIPTION"),
       color: "error",
     });
 
