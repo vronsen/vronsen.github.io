@@ -88,7 +88,7 @@ defineOgImageComponent("PortfolioOgImage", {
 <template>
   <div v-if="projects" class="m-8">
     <div class="flex flex-col justify-between gap-0">
-      <h1 class="text-4xl mb-4 font-bold">
+      <h1 class="text-3xl text-secondary mb-4 font-bold">
         {{ $t("PROJECT_OVERVIEW.TITLE") }}
       </h1>
       <USelect
@@ -103,7 +103,7 @@ defineOgImageComponent("PortfolioOgImage", {
     </div>
     <div v-for="project in projects" class="mb-8 pb-4">
       <div v-if="chosenTagIsInTagsOf(project)" class="border-b">
-        <ContentRenderer :value="project" class="mb-4 text-xl" />
+        <ContentRenderer :value="project" class="mb-4 text-lg" />
         <UButton class="mb-4">
           <NuxtLink :to="project.path" class="text-lg">
             {{ $t("PROJECT_OVERVIEW.BUTTON_DETAILS") }}

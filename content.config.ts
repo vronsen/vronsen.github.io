@@ -33,6 +33,7 @@ export default defineContentConfig({
         lang: z.string(),
         university: z.string(),
         course: z.string(),
+        description: z.string(),
         start: z.string(),
         end: z.string(),
       }),

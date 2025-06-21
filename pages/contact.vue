@@ -56,7 +56,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
     toast.add({
       title: t("CONTACT.TOAST.SUCCESS_TITLE"),
-      color: "success"
+      color: "success",
     });
 
     console.log("Antwort vom server:", response);
@@ -92,7 +92,9 @@ useHead({
 </script>
 
 <template>
-  <h1 class="text-xl mt-4 ml-12">{{ $t("CONTACT.TITLE") }}</h1>
+  <h1 class="text-3xl font-bold text-secondary mt-4 ml-12">
+    {{ $t("CONTACT.TITLE") }}
+  </h1>
 
   <UForm
     :schema="contactSchema"
